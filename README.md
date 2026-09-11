@@ -17,7 +17,7 @@ O site é composto por três páginas principais:
 - HTML5
 - CSS3
 - JavaScript
-- GitHub Pages
+- GitHub Pages 
 
 ## 🧩 Funcionalidades
 
