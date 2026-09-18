@@ -1,65 +1,140 @@
+:root {
+    /* Cores */
+    --color-primary: #245C45;
+    --color-primary-dark: #174331;
+    --color-primary-light: #3F8063;
+    --color-secondary: #D9A441;
+
+    --color-background: #F5F7F5;
+    --color-surface: #FFFFFF;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-border: #D9DEDA;
+
+    /* Tipografia */
+    --font-size-xs: 0.875rem;
+    --font-size-sm: 1rem;
+    --font-size-md: 1.25rem;
+    --font-size-lg: 1.75rem;
+    --font-size-xl: 2.25rem;
+
+    /* Espaçamentos - escala modular de 8px */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 2.5rem;
+    --space-6: 3rem;
+}
+
+
+/* Reset básico */
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     font-family: Arial, sans-serif;
+    font-size: var(--font-size-sm);
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
+    color: var(--color-text);
+    background-color: var(--color-background);
 }
 
+
+/* Cabeçalho */
+
 header {
-    padding: 20px;
-    background-color: #245c45;
-    color: white;
+    padding: var(--space-4);
+    background-color: var(--color-primary);
+    color: var(--color-surface);
 }
 
 header h1 {
-    margin-top: 0;
+    margin: 0 0 var(--space-2);
+    font-size: var(--font-size-xl);
 }
+
+
+/* Navegação */
 
 nav ul {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: var(--space-3);
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav a {
-    color: white;
+    color: var(--color-surface);
     text-decoration: none;
+    font-size: var(--font-size-sm);
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
     text-decoration: underline;
 }
 
+
+/* Conteúdo principal */
+
 main {
     max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: white;
+    margin: var(--space-5) auto;
+    padding: var(--space-5);
+    background-color: var(--color-surface);
 }
 
 section {
-    margin-bottom: 30px;
+    margin-bottom: var(--space-6);
 }
 
-article {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
+section h2 {
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
 }
+
+section p {
+    font-size: var(--font-size-sm);
+}
+
+
+/* Artigos */
+
+article {
+    margin-bottom: var(--space-3);
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-background);
+}
+
+article h3 {
+    margin-top: 0;
+    color: var(--color-primary-dark);
+    font-size: var(--font-size-md);
+}
+
+
+/* Imagens */
 
 img {
     display: block;
     max-width: 100%;
     height: auto;
-    margin-top: 20px;
+    margin-top: var(--space-3);
+    border-radius: 8px;
 }
+
+
+/* Formulário */
 
 form {
     max-width: 800px;
@@ -67,11 +142,22 @@ form {
 }
 
 fieldset {
-    margin-bottom: 25px;
-    padding: 20px;
+    margin-bottom: var(--space-4);
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
 }
 
 legend {
+    padding: 0 var(--space-1);
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: var(--font-size-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-1);
     font-weight: bold;
 }
 
@@ -80,17 +166,71 @@ select,
 textarea {
     width: 100%;
     max-width: 500px;
-    padding: 10px;
-    margin-top: 5px;
+    padding: var(--space-1);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font: inherit;
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+
+/* Botões */
+
 button {
-    padding: 10px 20px;
-    margin-right: 10px;
+    padding: var(--space-1) var(--space-3);
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    font-size: var(--font-size-sm);
     cursor: pointer;
 }
 
+button:hover,
+button:focus {
+    background-color: var(--color-primary-dark);
+}
+
+
+/* Rodapé */
+
 footer {
-    padding: 20px;
+    padding: var(--space-4);
     text-align: center;
+    background-color: var(--color-primary-dark);
+    color: var(--color-surface);
+}
+
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: var(--space-3);
+    }
+
+    header h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+
+    main {
+        margin: var(--space-2) auto;
+        padding: var(--space-3);
+    }
+
+    section h2 {
+        font-size: var(--font-size-md);
+    }
 }
