@@ -392,7 +392,6 @@ export function renderRegistration() {
                                         id="address"
                                         name="address"
                                         type="text"
-                                        autocomplete="street-address"
                                         required
                                     >
 
